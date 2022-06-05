@@ -17,21 +17,21 @@
     <ul class="mdui-list">
         <li class="mdui-list-item mdui-ripple">
             <a href="./index.html">
-            <i class="mdui-icon material-icons">home</i>
+                <i class="mdui-icon material-icons">home</i>
             </a>
-                <a href="./index.html">
-            <div class="mdui-list-item-content">主页</div>
+            <a href="./index.html">
+                <div class="mdui-list-item-content">主页</div>
             </a>
         </li>
         <li class="mdui-list-item mdui-ripple">
             <a href="./about.html">
-            <i class="mdui-icon material-icons">info_outline</i>
+                <i class="mdui-icon material-icons">info_outline</i>
             </a>
-                <a href="./about.html">
-            <div class="mdui-list-item-content">关于</div>
+            <a href="./about.html">
+                <div class="mdui-list-item-content">关于</div>
             </a>
         </li>
-    <button class="mdui-btn" mdui-drawer-close><i class="mdui-icon material-icons">close</i>关闭</button>
+        <button class="mdui-btn" mdui-drawer-close><i class="mdui-icon material-icons">close</i>关闭</button>
     </ul>
 </div>
 <div class="mdui-toolbar">
@@ -50,21 +50,33 @@
       </svg>
     </a>
 </div>
-<!--工具列表-->
-<div class="mdui-text-color-blue"><h1>工具列表</h1></div>
-<div class="mdui-panel" mdui-panel>
-<div class="mdui-panel-item">
-    <div class="mdui-panel-item-header">
-        <div class="mdui-panel-item-title" mdui-tooltip="{content: '与计算相关的工具'}">计算工具</div>
-        <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-    </div>
-    <div class="mdui-panel-item-body">
-        <button class="mdui-btn mdui-btn-raised mdui-ripple" href="./jttl.html" mdui-tooltip="{content: '轻松计算鸡兔同笼问题'}">鸡兔同笼计算器</button>
-        <button class="mdui-btn mdui-btn-raised mdui-ripple" href="./eval.html" mdui-tooltip="{content: '计算器'}">计算器</button>
-    </div>
+<div class="mdui-text-color-blue"><h1>计算器</h1></div>
+<div class="mdui-textfield mdui-textfield-floating-label">
+    <label class="mdui-textfield-label">请输入算式</label>
+    <input id="ntb_eval_t_1" oninput="ntb_eval_1()" class="mdui-textfield-input" type="text" pattern="^.*(?=.*['1','2','3','4','5','6','7','8','9','0','+','-','*','/','(',')']).*$" required/>
+    <div class="mdui-textfield-error">算式只能包含数字及+-*/()</div>
+    <div class="mdui-textfield-helper">请输入算式，且只能包含数字及+-*/()</div>
 </div>
+<div class="mdui-text-color-blue"><h1>计算结果</h1></div>
+<div class="mdui-chip">
+  <span class="mdui-chip-icon mdui-color-blue">A</span>
+    <span class="mdui-chip-title" id="ntb_eval_a_1">null</span>
 </div>
+<script type="text/javascript">
+    function ntb_eval_1() {
+        let a=document.getElementById("ntb_eval_t_1");
+        let b=eval(a.value);
+        if (b-b==0){
+            document.getElementById("ntb_eval_a_1").innerHTML = b;
+        }else{
+            document.getElementById("ntb_eval_a_1").innerHTML = '无结果！错误代码：'+b;
+        }
+    }
+</script>
+<!--页脚-->
 <div class="mdui-divider"></div>
+
+
 <div class="mdui-color-grey-300">
     <b>©2022 niaodtiantang.com all rights reserved.</b>
 </div>
